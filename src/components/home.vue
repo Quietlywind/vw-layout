@@ -1,13 +1,20 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div class="">
+    <img src="../assets/logo.png">
+    <div class="hello-box">
+      <div class="hello-box-item" v-for="(i,index) in tabList" :key="index">
+        <img class="box-item-img" :src="i.img" alt="">
+        <p style="font-size: 14px;">{{i.name}}</p>
+      </div>
+    </div>
+    <van-button round size="small" color="linear-gradient(to right, #4bb0ff, #1cc09f)">测试按钮</van-button>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'App',
-  data () {
+  data() {
     return {
       tabList: [
         {name: "测试1", img: "../static/image/c1.png"},
@@ -15,29 +22,25 @@ export default {
         {name: "测试3", img: "../static/image/c3.png"},
         {name: "测试4", img: "../static/image/c4.png"}
       ]
-    }
+    };
+  },
+  components: {},
+  computed: {},
+  watch: {},
+  methods: {},
+  created() {},
+  mounted() {},
+  destroyed() {},
   }
-}
 </script>
-
-<style>
-body,p{
-  margin: 0;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  /* margin-top: 60px; */
-  box-sizing: border-box;
-}
+<style lang='less' scoped>
+//@import url(); 引入公共css类
 .hello-box{
   /* width: calc(100vw - 100px); */
   /* height: 13vh; */
   display: flex;
   padding: 10px;
+  margin-bottom: 1.5vh;
 }
 .hello-box-item{
   height: 100%;

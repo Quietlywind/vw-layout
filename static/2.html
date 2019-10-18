@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .bar.bid {
+      fill: rgba(40, 193, 44, 0.3);
+    }
+
+    .bar.ask {
+      fill: rgba(255, 0, 0, 0.4);
+    }
+
+    .bar:hover {
+      fill: #337ab7;
+    }
+
+    .label {
+      font-size: 12px
+    }
+
+    .tick line {
+      stroke: rgba(0, 0, 0, 0.1);
+    }
+
+    /* .axis--x path {
+      display: none;
+    }
+
+    .axis--y path {
+      display: none;
+    } */
+
+    svg,
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+  <div id='c' style="width: 80%;height: 600px;margin-left:50px;margin-right:50px;margin-top: 50px;">
+  </div>
+
+  <script>
+
+
+
+
+    const draw = (selector, d3 = window.d3, opts = {
+      hasGrid: true,
+      x: {
+        point: 8
+      },
+      y: {
+        point: 4
+      }
+    }) => {
+      const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+
+      const bid1 = [{
+        "price": "6674.95",
+        "total": "0.0000",
+        "type": "bid"
+      }, {
+        "price": "6668.27",
+        "total": "0.6071",
+        "type": "bid"
+      }, {
+        "price": "6661.60",
+        "total": "5.0778",
+        "type": "bid"
+      }, {
+        "price": "6654.92",
+        "total": "5.7531",
+        "type": "bid"
+      }, {
+        "price": "6648.25",
+        "total": "6.3227",
+        "type": "bid"
+      }, {
+        "price": "6641.57",
+        "total": "7.9281",
+        "type": "bid"
+      }, {
+        "price": "6634.90",
+        "total": "8.9391",
+        "type": "bid"
+      }, {
+        "price": "6628.22",
+        "total": "10.1123",
+        "type": "bid"
+      }, {
+        "price": "6621.55",
+        "total": "10.1123",
+        "type": "bid"
+      }, {
+        "price": "6614.87",
+        "total": "12.7099",
+        "type": "bid"
+      }, {
+        "price": "6608.20",
+        "total": "12.7099",
+        "type": "bid"
+      }, {
+        "price": "6601.52",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6594.85",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6588.17",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6581.50",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6574.82",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6568.15",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6561.47",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6554.80",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6548.12",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6541.45",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6534.77",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6528.10",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6521.42",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6514.75",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6508.07",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6501.40",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6494.72",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6488.05",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6481.37",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6474.70",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6468.02",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6461.35",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6454.67",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6448.00",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6441.32",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6434.65",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6427.97",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6421.30",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6414.62",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6407.95",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6401.27",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6394.60",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6387.92",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6381.25",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6374.57",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6367.90",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6361.22",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6354.55",
+        "total": "15.8423",
+        "type": "bid"
+      }, {
+        "price": "6347.87",
+        "total": "15.8423",
+        "type": "bid"
+      }]
+
+      const ask1 = [{ "price": "6681.62", "total": "1.7297", "type": "ask" }, { "price": "6688.29", "total": "4.5175", "type": "ask" }, { "price": "6694.97", "total": "4.5175", "type": "ask" }, { "price": "6701.64", "total": "8.8550", "type": "ask" }, { "price": "6708.32", "total": "10.2935", "type": "ask" }, { "price": "6714.99", "total": "11.7423", "type": "ask" }, { "price": "6721.67", "total": "11.7423", "type": "ask" }, { "price": "6728.34", "total": "11.7423", "type": "ask" }, { "price": "6735.02", "total": "16.9143", "type": "ask" }, { "price": "6741.69", "total": "16.9143", "type": "ask" }, { "price": "6748.37", "total": "16.9143", "type": "ask" }, { "price": "6755.04", "total": "16.9143", "type": "ask" }, { "price": "6761.72", "total": "16.9143", "type": "ask" }, { "price": "6768.39", "total": "16.9143", "type": "ask" }, { "price": "6775.07", "total": "16.9143", "type": "ask" }, { "price": "6781.74", "total": "16.9143", "type": "ask" }, { "price": "6788.42", "total": "16.9143", "type": "ask" }, { "price": "6795.09", "total": "16.9143", "type": "ask" }, { "price": "6801.77", "total": "18.9251", "type": "ask" }, { "price": "6808.44", "total": "18.9251", "type": "ask" }, { "price": "6815.12", "total": "18.9251", "type": "ask" }, { "price": "6821.79", "total": "18.9251", "type": "ask" }, { "price": "6828.47", "total": "18.9251", "type": "ask" }, { "price": "6835.14", "total": "18.9251", "type": "ask" }, { "price": "6841.82", "total": "18.9251", "type": "ask" }, { "price": "6848.49", "total": "18.9251", "type": "ask" }, { "price": "6855.17", "total": "19.9251", "type": "ask" }, { "price": "6861.84", "total": "19.9251", "type": "ask" }, { "price": "6868.52", "total": "19.9251", "type": "ask" }, { "price": "6875.19", "total": "19.9251", "type": "ask" }, { "price": "6881.87", "total": "19.9251", "type": "ask" }, { "price": "6888.54", "total": "19.9251", "type": "ask" }, { "price": "6895.22", "total": "19.9251", "type": "ask" }, { "price": "6901.89", "total": "20.9251", "type": "ask" }, { "price": "6908.57", "total": "20.9251", "type": "ask" }, { "price": "6915.24", "total": "20.9251", "type": "ask" }, { "price": "6921.92", "total": "20.9251", "type": "ask" }, { "price": "6928.59", "total": "20.9251", "type": "ask" }, { "price": "6935.27", "total": "20.9251", "type": "ask" }, { "price": "6941.94", "total": "20.9251", "type": "ask" }, { "price": "6948.62", "total": "20.9251", "type": "ask" }, { "price": "6955.29", "total": "20.9251", "type": "ask" }, { "price": "6961.97", "total": "20.9251", "type": "ask" }, { "price": "6968.64", "total": "20.9251", "type": "ask" }, { "price": "6975.32", "total": "20.9251", "type": "ask" }, { "price": "6981.99", "total": "20.9251", "type": "ask" }, { "price": "6988.67", "total": "20.9251", "type": "ask" }, { "price": "6995.34", "total": "20.9251", "type": "ask" }, { "price": "7002.02", "total": "20.9251", "type": "ask" }, { "price": "7008.69", "total": "20.9251", "type": "ask" }]
+
+      const depth = {
+        v: {
+          depthIns: null,
+          init(depthIns) {
+            this.depthIns = depthIns
+          }
+        },
+        c: {
+          depthIns: null,
+          init(depthIns) {
+            this.depthIns = depthIns
+          }
+        },
+        markLine: {
+          depthIns: null,
+          init(depthIns) {
+            this.depthIns = this.depthIns;
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          },
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            }
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = depth.container.v.el.append('div')
+            },
+          },
+          c: {
+            depthIns: null,
+            top: margin.top,
+            left: margin.left,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            },
+            hide() {
+              this.depthIns.markLine.v.el.transition()
+                .duration(0)
+                .style('opacity', 0)
+            },
+            show() {
+              this.depthIns.markLine.v.el.transition()
+                .duration(0)
+                .style('opacity', 1)
+            },
+
+            move(x, y) {
+              this.left = x;
+              this.top = y;
+              this.render();
+            },
+            render() {
+              this.depthIns.markLine.v.el.attr('class', 'tl-line')
+                .style('position', 'absolute')
+                .style('top', `${this.top}px`)
+                .style('left', `${this.left}px`)
+                .style('width', '1px')
+                .style('height', `${depth.m.scale.y(0)}px`)
+                .style('background', 'red')
+                .style('opacity', 0)
+            }
+          },
+
+        },
+        tooltip: {
+          depthIns: null,
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            },
+            getX() {
+              const pL = 15;
+              const pR = 15;
+              const pos = depth.svg.gC.m.getPos();
+
+              const { tlW, tlH } = this.getSize();
+
+              if (this.depthIns.svg.gC.mouse.m.inLeft()) {
+                return pL + pos.x;
+              }
+              if (!this.depthIns.svg.gC.mouse.m.inLeft()) {
+                return pos.x - tlW - pL - margin.left;
+              }
+            },
+            getY() {
+              const item = this.depthIns.m.xAxis.pos2data();
+              if (!item) {
+                return 0;
+              }
+              const y = depth.m.scale.y(item.total);
+              return y;
+            },
+            get(turn) {
+              const pos = depth.svg.gC.m.getPos();
+
+              const { tlW, tlH } = this.getSize();
+              if (turn == 'left') {
+                return pos.pT + pos.y;
+              }
+              if (turn == 'right') {
+                return pos.y - tlH - pos.pT;
+              }
+            },
+            getSize() {
+              const tlW = this.depthIns.tooltip.v.el.node().clientWidth;
+              const tlH = this.depthIns.tooltip.v.el.node().clientHeight;
+              return {
+                tlW,
+                tlH
+              }
+            },
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom()
+            },
+            initDom() {
+              this.el = depth.container.v.el.append('div');
+            },
+          },
+          c: {
+            top: margin.top,
+            left: margin.left,
+            depthIns: null,
+            isHide: true,
+            type: 'bid', // bid | ask
+            html: '',
+            init(depthIns) {
+              this.depthIns = depthIns;
+            },
+            show() {
+              const posData = this.depthIns.m.xAxis.pos2data();
+
+              const pos = this.depthIns.svg.gC.m.getPos();
+
+              if (this.depthIns.svg.gC.mouse.m.inLeft()) {
+                this.setType('bid')
+              } else {
+                this.setType('ask')
+              }
+
+              this.isHide = false;
+              this.html = `
+                <div style='font-size: 14px;line-height: 16px;'>
+                <div style="display:flex">
+                <div>Bid:</div>
+                <div style="font-weight: bold;padding-left:10px">${posData.price}</div>
+                </div>
+                <div style="display:flex">
+                <div>Total volume:</div>
+                <div style="font-weight: bold;padding-left:10px">${posData.total}</div>
+                </div>
+                <div style="display:flex">
+                <div>Volume:</div>
+                <div style="font-weight: bold;padding-left:10px">${posData.price}</div>
+                </div>
+                </div>
+                `
+              this.render();
+            },
+            hide() {
+              this.isHide = true;
+              this.render();
+            },
+            move(x, y) {
+              this.left = x;
+              this.top = y;
+              this.render();
+            },
+            setType(type) {
+              this.type = type;
+              this.render();
+            },
+            render() {
+              this.depthIns.tooltip.v.el.interrupt()
+                .attr('class', 'tl-tooltip')
+                .html(this.html)
+                .transition()
+                .duration(300)
+                .style('position', 'absolute')
+                .style('top', `${this.depthIns.tooltip.m.getY()}px`)
+                .style('left', `${this.depthIns.tooltip.m.getX()}px`)
+                .style('padding', '5px')
+                .style('box-shadow', '2px 2px 5px #333333')
+                .style('opacity', this.isHide ? '0' : '1')
+                .style('background', 'rgba(255,251,251,0.7)')
+                .style('border', this.type == 'bid' ? '2px solid rgba(0,255,1,1)' : '2px solid rgba(255,0,0,1)')
+            }
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          },
+        },
+        svg: {
+          depthIns: null,
+          gC: {
+            depthIns: null,
+            mouse: {
+              depthIns: null,
+              m: {
+                depthIns: null,
+                init(depthIns) {
+                  this.depthIns = depthIns;
+                },
+                inLeftMin() {
+                  const [x, y] = d3.mouse(this.depthIns.container.v.el.node());
+                  return x <= margin.left;
+                },
+                inLeftMax() {
+
+                },
+                isRightMin() {
+
+                },
+                isLimit() {
+                  return this.inLeftMin() || this.inRightMax();
+                },
+                inRightMax() {
+                  const [x, y] = d3.mouse(this.depthIns.container.v.el.node());
+                  return x >= (this.depthIns.m.xAxis.toPos(this.depthIns.m.xAxis.max) + margin.left);
+                },
+                inLeft() {
+                  const pos = this.depthIns.svg.gC.m.getPosWithoutMargin();
+
+                  const half = this.depthIns.m.scale.x(this.depthIns.m.xAxis.left.max);
+
+                  if (pos.x > half) {
+                    return false;
+                  }
+                  return true;
+                },
+                inRight() {
+
+                }
+              },
+              v: {
+                depthIns: null,
+                init(depthIns) {
+                  this.depthIns = depthIns;
+                }
+              },
+              c: {
+                depthIns: null,
+                init(depthIns) {
+                  this.depthIns = depthIns;
+                }
+              },
+              init(depthIns) {
+                this.depthIns = depthIns;
+                this.v.init(depthIns);
+                this.m.init(depthIns);
+                this.c.init(depthIns);
+              },
+            },
+            m: {
+              depthIns: null,
+              init(depthIns) {
+                this.depthIns = depthIns;
+              },
+              getPosWithoutMargin() {
+                const { x, y } = this.getPos();
+                //去掉外边距的真实坐标
+                const rX = x - margin.left;
+                const rY = y - margin.top;
+                return {
+                  x: rX,
+                  y: rY
+                }
+              },
+              getPos() {
+                const [x, y] = d3.mouse(this.depthIns.container.v.el.node());
+                return {
+                  x,
+                  y,
+                }
+              },
+            },
+            v: {
+              el: null,
+              depthIns: null,
+              init(depthIns) {
+                this.depthIns = depthIns;
+                this.initDom();
+              },
+              initDom() {
+                this.el = this.depthIns.svg.v.el.append('g');
+              },
+            },
+            c: {
+              depthIns: null,
+              init(depthIns) {
+                this.depthIns = depthIns;
+                this.render();
+              },
+              render() {
+                this.depthIns.svg.gC.v.el.attr('transform', `translate(${margin.left},${margin.top})`)
+              },
+            },
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.v.init(depthIns);
+              this.m.init(depthIns);
+              this.c.init(depthIns);
+              this.mouse.init(depthIns);
+            },
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+
+            this.gC.init(depthIns);
+          },
+          m: {
+            depthIns: null,
+            width: 0,
+            height: 0,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initSize();
+            },
+            initSize() {
+              this.width = this.depthIns.svg.v.el.node().clientWidth - margin.left - margin.right;
+              this.height = this.depthIns.svg.v.el.node().clientHeight - margin.top - margin.bottom;
+            },
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom()
+            },
+            initDom() {
+              this.el = this.depthIns.container.v.el.append('svg');
+            },
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+            },
+            render() {
+
+            },
+            addListen() {
+
+            },
+          }
+        },
+        container: {
+          depthIns: null,
+          init(depthIns) {
+            this.depthIns = depthIns;
+
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns)
+          },
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            },
+            getSize() {
+              const cW = this.depthIns.container.v.el.node().clientWidth;
+              const cH = this.depthIns.container.v.el.node().clientHeight;
+              return {
+                cW,
+                cH
+              }
+            },
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = d3.select(selector);
+            }
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+              this.addListen();
+            },
+            render() {
+              this.depthIns.container.v.el.style('position', 'relative')
+            },
+            addListen() {
+              this.depthIns.container.v.el.on('mousemove', (nothing, index, node) => {
+                const pos = this.depthIns.svg.gC.m.getPos();
+
+                if (this.depthIns.svg.gC.mouse.m.isLimit()) {
+
+                  this.depthIns.tooltip.c.hide();
+
+                  this.depthIns.markLine.c.hide();
+
+                  return;
+                }
+
+                this.depthIns.tooltip.c.show();
+
+                this.depthIns.tooltip.c.move(this.depthIns.tooltip.m.getX('right'), pos.pT + pos.y);
+
+                this.depthIns.markLine.c.show();
+
+                this.depthIns.markLine.c.move(pos.x, margin.top);
+              })
+            }
+          },
+        },
+        m: {
+          bid: bid1.sort((a, b) => (a.price > b.price ? 1 : -1)).map((d) => { return { ...d, price: Number(d.price), total: Number(d.total) } }),
+          ask: ask1.sort((a, b) => (a.price > b.price ? 1 : -1)).map((d) => { return { ...d, price: Number(d.price), total: Number(d.total) } }),
+          hash: {},
+          data: [],
+          sortedData: [],
+          depthIns: null,
+          scale: {
+            x: null,
+            y: null,
+            depthIns: null,
+            domain: {
+              depthIns: null,
+              init(depthIns) {
+                this.depthIns = depthIns;
+                this.initDomain();
+              },
+              initDomain() {
+                this.depthIns.m.scale.x.domain([d3.min(this.depthIns.m.bid, (d) => { return d.price }), d3.max(this.depthIns.m.ask, (d) => { return d.price })])
+                this.depthIns.m.scale.y.domain([0, d3.max(this.depthIns.m.data, (d) => { return d.total })])
+              }
+            },
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initScale();
+              this.domain.init(depthIns);
+            },
+            initScale() {
+              this.depthIns.m.scale.x = d3.scaleLinear().range([0, this.depthIns.svg.m.width])
+              this.depthIns.m.scale.y = d3.scaleLinear().range([this.depthIns.svg.m.height, 0]);
+            }
+          },
+          line: {
+            line: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initLine();
+            },
+            initLine() {
+              this.line = d3.line()
+                .x((d) => { return this.depthIns.m.scale.x(d.price); })
+                .y((d) => { return this.depthIns.m.scale.y(d.total); })
+            }
+          },
+          area: {
+            area: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initArea();
+            },
+            initArea() {
+              this.area = d3.area()
+                .x((d) => { return this.depthIns.m.scale.x(d.price); })
+                .y1((d) => { return this.depthIns.m.scale.y(d.total); })
+                .y0(this.depthIns.m.scale.y(0));
+            },
+          },
+          xAxis: {
+            dataIns: null,
+            depthIns: null,
+            range: [],
+            min: null,
+            max: null,
+            cache: {
+
+            },
+            left: {
+              depthIns: null,
+              max: null,
+              min: null,
+              init(depthIns) {
+                this.depthIns = depthIns;
+                this.initMax();
+                this.initMin();
+              },
+              initMax() {
+                this.max = d3.max(this.depthIns.m.bid, (d) => { return d.price })
+              },
+              initMin() {
+                this.min = d3.min(this.depthIns.m.ask, (d) => { return d.price })
+              }
+            },
+            right: {
+              depthIns: null,
+              max: null,
+              min: null,
+              init(depthIns) {
+                this.depthIns = depthIns;
+                this.initMax();
+                this.initMin();
+              },
+              initMax() {
+                this.max = d3.max(this.depthIns.m.ask, (d) => { return d.price })
+              },
+              initMin() {
+                this.min = d3.min(this.depthIns.m.ask, (d) => { return d.price })
+              }
+            },
+            init(dataIns, depthIns) {
+              this.dataIns = dataIns;
+              this.depthIns = depthIns;
+              this.initMin();
+              this.initMax();
+              this.initRange();
+
+              this.left.init(depthIns);
+              this.right.init(depthIns);
+            },
+            toPos(v) {
+              return this.depthIns.m.scale.x(v);
+            },
+            pos2data() {
+
+              const { x, y } = this.depthIns.svg.gC.m.getPosWithoutMargin();
+
+              const xVal = this.depthIns.m.scale.x.invert(x);
+
+              const range = this.range.filter((d) => {
+                if (xVal >= d[0] && xVal <= d[1]) {
+                  return d;
+                }
+              });
+
+              const near = this.getNear(this.flatArr(range), xVal);
+
+              return near[0];
+            },
+            flatArr(arr) {
+              return arr.reduce((initVal, d) => {
+                initVal.push(d[0]);
+                initVal.push(d[1]);
+                return initVal;
+              }, [])
+            },
+
+            initRange() {
+              const ret = [];
+              const data = this.dataIns.data;
+              const sorted = this.dataIns.sortedData;
+
+              sorted.map((item, i) => {
+                if (i == 0) {
+                  return;
+                }
+                const pre = sorted[i - 1];
+                const next = item;
+                ret.push([pre.price, next.price]);
+              })
+
+              this.range = ret;
+            },
+            // a or b is more near m ? 
+            getNear(arr, m) {
+
+              const minPrice = this.min;
+              const maxPrice = this.max;
+
+              if (m < minPrice) {
+                return minPrice;
+              }
+              if (m > maxPrice) {
+                return maxPrice;
+              }
+
+              const compare = [];
+
+              const index = false;
+
+              arr.forEach((item) => {
+                compare.push({
+                  compare: Math.abs(item - m),
+                  val: item
+                });
+              })
+
+              const min = Math.min.apply(Math, compare.map((d) => {
+                return d.compare;
+              }));
+
+              const near = compare.filter((d) => {
+                return d.compare == min;
+              })[0].val;
+
+              let ret = this.dataIns.data.filter((d) => {
+                return d.price == near;
+              });
+
+              return ret;
+
+            },
+            initMax() {
+              this.max = d3.max(this.dataIns.data, (d) => { return d.price });;
+            },
+            initMin() {
+              this.min = d3.min(this.dataIns.data, (d) => { return d.price });;
+            },
+            getTicks(n, p = 2) {
+              n = n - 1;
+              const data = this.dataIns.data;
+              const min = this.min;
+              const max = this.max;
+
+              let sum = min;
+
+              let ret = [];
+
+              const avg = (max - min) / n;
+
+              for (let i = 0; i < n; i++) {
+                ret.push(Number(sum).toFixed(2));
+                sum += avg;
+              }
+
+              ret = ret.map((d) => {
+                return Number(d).toFixed(p)
+              })
+
+              ret.push(Number(max).toFixed(p) + "");
+
+              return ret;
+            },
+          },
+          yAxis: {
+            dataIns: null,
+            init(dataIns) {
+              this.dataIns = dataIns;
+            }
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+
+            this.initData();
+            this.initSortedData();
+            this.initHashData();
+
+            this.scale.init(depthIns);
+
+            this.xAxis.init(this, this.depthIns);
+            this.yAxis.init(this);
+
+            this.area.init(depthIns);
+            this.line.init(depthIns);
+          },
+          initData() {
+            this.data = this.bid.concat(this.ask);
+          },
+          initHashData() {
+            const ret = [];
+            this.data.forEach((d) => {
+              ret[d.price + ""] = d;
+            });
+            this.hash = ret;
+          },
+          initSortedData() {
+            this.sortedData = this.data.concat().sort((pre, next) => {
+              return pre.price - next.price;
+            });
+          }
+        },
+        askArea: {
+          el: null,
+          depthIns: null,
+          init(depthIns) {
+            this.depthIns = depthIns;
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          },
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            }
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = this.depthIns.svg.gC.v.el.append('path')
+            },
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+            },
+            render() {
+              this.depthIns.askArea.v.el.datum(this.depthIns.m.ask)
+                .attr("fill", "rgba(255,0,0,0.1)")
+                .attr("stroke-linejoin", "round")
+                .attr("stroke-linecap", "round")
+                .attr("stroke-width", 2)
+                .attr("d", this.depthIns.m.area.area);
+            }
+          },
+        },
+        bidArea: {
+          el: null,
+          depthIns: null,
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            }
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = this.depthIns.svg.gC.v.el.append('path');
+            },
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+            },
+            render() {
+              this.depthIns.bidArea.v.el
+                .datum(this.depthIns.m.bid)
+                .attr("fill", "rgba(0,255,1,0.1)")
+                .attr("stroke-linejoin", "round")
+                .attr("stroke-linecap", "round")
+                .attr("stroke-width", 2)
+                .attr("d", this.depthIns.m.area.area)
+            }
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          }
+        },
+        bidLine: {
+          depthIns: null,
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            }
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = this.depthIns.svg.gC.v.el.append('path');
+            }
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+            },
+            render() {
+              this.depthIns.bidLine.v.el
+                .datum(this.depthIns.m.bid)
+                .attr("fill", "none")
+                .attr("stroke-linejoin", "round")
+                .attr("stroke-linecap", "round")
+                .attr("stroke-width", 2)
+                .attr("stroke", "rgba(0,255,1,1)")
+                .attr("d", this.depthIns.m.line.line)
+            }
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          }
+        },
+        askLine: {
+          depthIns: null,
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            }
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = this.depthIns.svg.gC.v.el.append('path');
+            },
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+            },
+            render() {
+              this.depthIns.askLine.v.el
+                .datum(this.depthIns.m.ask)
+                .attr("fill", "none")
+                .attr("stroke-linejoin", "round")
+                .attr("stroke-linecap", "round")
+                .attr("stroke-width", 2)
+                .attr("stroke", "rgba(255,0,0,1)")
+                .attr("d", this.depthIns.m.line.line)
+            }
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          },
+        },
+        xAxis: {
+          depthIns: null,
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            }
+          },
+          v: {
+            el: null,
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = this.depthIns.svg.gC.v.el.append('g');
+            },
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+            },
+            render() {
+              this.depthIns.xAxis.v.el.attr('class', 'axis axis--x')
+                .attr('transform', `translate(0,${this.depthIns.svg.m.height})`)
+                .call(
+
+                  d3.axisBottom(this.depthIns.m.scale.x).ticks(10, '.2f').tickValues(this.depthIns.m.xAxis.getTicks(10, 2))
+
+                );
+
+
+              if (opts.hasGrid) {
+                this.depthIns.xAxis.v.el.selectAll('g line')
+                  .attr('y2', (y1, y2, nodes) => {
+                    return -this.depthIns.m.scale.y(0)
+                  })
+              }
+            }
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          },
+        },
+        yAxis: {
+          el: null,
+          depthIns: null,
+          m: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+            }
+          },
+          v: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.initDom();
+            },
+            initDom() {
+              this.el = this.depthIns.svg.gC.v.el.append('g');
+            },
+          },
+          c: {
+            depthIns: null,
+            init(depthIns) {
+              this.depthIns = depthIns;
+              this.render();
+            },
+            render() {
+              this.depthIns.yAxis.v.el.attr('class', 'axis axis--y')
+                .call(d3.axisLeft(this.depthIns.m.scale.y));
+
+              if (opts.hasGrid) {
+                this.depthIns.yAxis.v.el.selectAll('g line')
+                  .attr('x2', (y1, y2, nodes) => {
+                    return this.depthIns.m.xAxis.toPos(this.depthIns.m.xAxis.max);
+                  })
+              }
+            }
+          },
+          init(depthIns) {
+            this.depthIns = depthIns;
+            this.v.init(depthIns);
+            this.m.init(depthIns);
+            this.c.init(depthIns);
+          },
+        },
+        render() {
+          this.container.c.init(this);
+          this.svg.c.init(this);
+          this.svg.gC.c.init(this);
+          this.svg.gC.mouse.c.init(this);
+          this.tooltip.c.init(this);
+          this.markLine.c.init(this);
+          this.bidArea.c.init(this);
+          this.askArea.c.init(this);
+          this.bidLine.c.init(this);
+          this.askLine.c.init(this);
+          this.xAxis.c.init(this)
+          this.yAxis.c.init(this)
+        },
+        setOption(opts) {
+          this.container.m.init(this);
+          this.svg.m.init(this);
+          this.svg.gC.m.init(this);
+          this.svg.gC.mouse.m.init(this);
+          this.tooltip.m.init(this);
+          this.m.init(this);
+          this.bidArea.m.init(this);
+          this.askArea.m.init(this);
+          this.bidLine.m.init(this);
+          this.askLine.m.init(this);
+          this.xAxis.m.init(this)
+          this.yAxis.m.init(this)
+        },
+        init() {
+          this.container.v.init(this);
+          this.svg.v.init(this);
+          this.svg.gC.v.init(this);
+          this.svg.gC.mouse.v.init(this);
+          this.tooltip.v.init(this);
+          this.markLine.v.init(this);
+          this.bidArea.v.init(this);
+          this.askArea.v.init(this);
+          this.bidLine.v.init(this);
+          this.askLine.v.init(this);
+          this.xAxis.v.init(this)
+          this.yAxis.v.init(this)
+        },
+        untils: {
+          timer: null,
+          each(o, fn) {
+            if (Object.prototype.toString.call(o) == '[object Array') {
+              for (let i = 0; i < o.length; i++) {
+                fn(o[i], o);
+              }
+            }
+            if (Object.prototype.toString.call(o) == '[object Object]') {
+              for (let key in o) {
+                fn(o[key], key);
+              }
+            }
+          },
+          debounce(fn, time) {
+            if (this.timer) {
+              clearTimeout(this.timer);
+            }
+            this.timer = setTimeout(() => {
+              fn();
+              clearTimeout(this.timer);
+            }, time)
+          }
+        }
+      }
+
+
+      return depth;
+    };
+
+
+
+  </script>
+  <script>
+
+
+    const depth = draw('#c');
+
+    depth.init();
+
+    depth.setOption();
+
+    depth.render();
+
+    window.onresize = () => {
+      depth.setOption();
+      depth.render();
+    };
+
+  </script>
+</body>

@@ -33,9 +33,9 @@ body,p{
   /* margin-top: 60px; */
   box-sizing: border-box;
 }
-.hello-box{
-  /* width: calc(100vw - 100px); */
-  /* height: 13vh; */
+/* .hello-box{
+  width: calc(100vw - 100px);
+  height: 13vh;
   display: flex;
   padding: 10px;
 }
@@ -54,5 +54,5 @@ body,p{
   opacity: .7;
   margin-bottom: 14px;
   box-shadow: 4px 4px 20px rgba(250, 67, 106, 0.3);
-}
+} */
 </style>

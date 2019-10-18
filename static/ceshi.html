@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tb" border="1">
+        <thead>
+            <tr>
+                <td>国家</td>
+                <td>地区</td>
+                <td>指数</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <button onclick="autoRowSpan(tb,0,0)">自动合并单元格</button>
+    <script>
+        let objData = [
+            {name: "中国", val: "北京", tag: 1.2},
+            {name: "中国", val: "天津", tag: 1.1},
+            {name: "中国", val: "上海", tag: 2.1},
+            {name: "美国", val: "华盛顿", tag: 1.1},
+            {name: "美国", val: "纽约", tag: 2.2},
+            {name: "英国", val: "伦敦", tag: 1.2},
+            {name: "英国", val: "爱丁堡", tag: 3.2},
+            {name: "日本", val: "东京都", tag: 1.2},
+        ]
+        let htmlDom = "";
+        objData.forEach((i,index) => {
+            htmlDom += `<tr>
+            <td>${i.name}</td>
+            <td>${i.tag}</td>
+            <td>${i.val}</td>
+            </tr>`
+        })
+        tb.children[1].innerHTML = htmlDom
+        function autoRowSpan(tb,row,col)
+            {
+                var lastValue="";
+                var value="";
+                var pos=1;
+                for(var i=row;i<tb.rows.length;i++)
+                {
+                    value = tb.rows[i].cells[col].innerText;
+                    if(lastValue == value)
+                    {
+                        tb.rows[i].deleteCell(col);
+                        tb.rows[i-pos].cells[col].rowSpan = tb.rows[i-pos].cells[col].rowSpan+1;
+                        pos++;
+                    }else{
+                        lastValue = value;
+                        pos=1;
+                    }
+                }
+            }
+        
+    </script>
+</body>
+</html>

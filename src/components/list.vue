@@ -1,15 +1,11 @@
 <template>
   <div class="">
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="info">信息按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>   
+    <div id="map-container" style="width: 100%;height: 50vh;"></div>
   </div>
 </template>
 
 <script>
-
+import { location } from "@/libs/getLocation"
 export default {
   data() {
     return {
@@ -19,9 +15,28 @@ export default {
   components: {},
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    getLocation() {
+      let _this = this;
+      let geolocation = location.initMap("map-container");
+      AMap.event.addListener(geolocation, "complete", result => {
+        // _that.lat = result.position.lat;
+        // _that.lng = result.position.lng;
+        // _that.province = result.addressComponent.province;
+        // _that.city = result.addressComponent.city;
+        // _that.district = result.addressComponent.district;
+      });
+    },
+  },
   created() {},
-  mounted() {},
+  mounted() {
+    this.$toast.loading({
+      mask: true,
+      message: '加载中...',
+      duration: 1500
+    });
+    this.getLocation(); // 调用获取地理位置
+  },
   destroyed() {},
   }
 </script>

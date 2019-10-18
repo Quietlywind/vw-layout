@@ -53,9 +53,12 @@ export default {
     swiperChange(e) {
       this.swiperCurrent = e;
     },
+    
   },
   created() {},
-  mounted() {},
+  mounted() {
+    this.getLocation(); // 调用获取地理位置
+  },
   destroyed() {},
   }
 </script>

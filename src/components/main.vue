@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <van-nav-bar title="一个vw-layout项目" left-text="" right-text=""	/>
-    <div class="main-content">
+    <div class="main-content" style="margin-bottom: 50px;">
       <router-view></router-view>
     </div>
     <van-tabbar route>

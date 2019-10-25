@@ -1,16 +1,20 @@
 <template>
   <div class="c-day">
-    <div class="d-item" v-for="i in weeks" :key="i">
+    <div class="h-item" v-for="i in weeks" :key="i">
       <span>{{i}}</span>
     </div>
     <div class="d-item" v-for="(item,key) in days" :key="key">
-      <span :class="[item.fullDate == currentDays ? 'cellbg' : '']">{{item.num}}</span>
+      <!-- <span :class="[item.fullDate == currentDays ? 'current-bg' : '', item.show == 0 ? 'no-default' : '']">{{item.num}}</span> -->
+      <div class="d-item-box">
+        <span class="text-num">{{item.num}}</span>
+        <span class="text-calendar">{{item.calendar.Term ? item.calendar.Term : item.calendar.IDayCn}}</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
+import calendar from "@/libs/calendar"
 export default {
   data() {
     return {
@@ -23,6 +27,12 @@ export default {
   computed: {},
   watch: {},
   methods: {
+    //获得月份
+    getMonths(d, t = 0) {
+      var curDate = new Date(d.replace(/-/g, '/'));
+      var curMonth = curDate.getMonth();
+      return curMonth + t + 1
+    },
     //计算本月天数
     getDates(d, t = 0) {
       var curDate = new Date(d.replace(/-/g, '/'));
@@ -46,23 +56,33 @@ export default {
         var preDates = this.getDates(d, -1)
         var nexDates = this.getDates(d, 1)
         var curWeek = this.getWeek(d)
+        var curMonth = this.getMonths(d)
+        var preMonth = this.getMonths(d, -1)
+        var nexMonth = this.getMonths(d, 1)
         curDates = curDates.map((i, k) => {
           return {
             num: i,
             fullDate: /(^\d{4})-(\d{1,2})-/.exec(d)[0] + i,
-            show: 1
+            show: 1,
+            calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],curMonth,i)
           }
         })
         preDates = preDates.map(i => {
           return {
             num: i,
-            show: 0
+            show: 0,
+            year: /(^\d{4})/.exec(d)[0],
+            month: preMonth,
+            calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],preMonth,i)
           }
         })
         nexDates = nexDates.map(i => {
           return {
             num: i,
-            show: 0
+            show: 0,
+            year: /(^\d{4})/.exec(d)[0],
+            month: nexMonth,
+            calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],nexMonth,i)
           }
         })
         var preCurDates = preDates.slice(preDates.length - (curWeek === 0 ? 6 : curWeek - 1), preDates.length).concat(curDates)
@@ -70,10 +90,11 @@ export default {
     }
   },
   created() {
-    this.currentDays = "2019-10-21"
-    this.days = this.getFullChunkDates('2019-10-21')
+    this.currentDays = "2019-12-21"
+    this.days = this.getFullChunkDates(this.currentDays)
   },
-  mounted() {},
+  mounted() {
+  },
   destroyed() {},
   }
 </script>
@@ -81,16 +102,43 @@ export default {
 .c-day{
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
+  padding: 20px 40px;
+  .h-item{
+    width: calc(~"100% / 7");
+    height: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .d-item{
     width: calc(~"100% / 7");
-    height: 5.5vh;
-    line-height: 5.5vh;
+    height: 7vh;
     cursor: pointer;
-    .cellbg{
-      background-color: #1cc09f;
-      display: block;
+    &-box{
+      height: 100%;
+      box-sizing: border-box;
+      display: flex; 
+      flex-direction: column;
+      justify-content: center;
     }
+    .text-num{
+      font-size: 16px;
+      line-height: 100%;
+    }
+    .text-calendar{
+      font-size: 12px;
+      line-height: 100%;
+    }
+    // .current-bg{
+    //   // background-color: #1cc09f;
+    //   border: 1px solid #1cc09f;
+    //   display: block;
+    //   border-radius: 50%;
+    // }
+    // .no-default{
+    //   color: #cccccc;
+    //   display: block;
+    // }
   }
 }
 </style>

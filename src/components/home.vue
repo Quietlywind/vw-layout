@@ -15,7 +15,7 @@
         <p style="font-size: 14px;">{{i.name}}</p>
       </div>
     </div>
-    <van-button style="width: 35vw;" round size="normal" color="linear-gradient(to right, #4bb0ff, #1cc09f)" @click="ceshi()">测试按钮</van-button>
+    <van-button style="width: 40vw;" round size="normal" color="linear-gradient(to right, #4bb0ff, #1cc09f)" @click="ceshi()">测试按钮</van-button>
   </div>
 </template>
 

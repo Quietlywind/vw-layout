@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div id="map-container" style="width: 100%;height: 50vh;"></div>
+    <div id="map-container" style="width: 100 %;height: 50vh;"></div>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
         // _that.province = result.addressComponent.province;
         // _that.city = result.addressComponent.city;
         // _that.district = result.addressComponent.district;
-      });
+      }); 
     },
   },
   created() {},
@@ -35,7 +35,7 @@ export default {
       message: '加载中...',
       duration: 1500
     });
-    this.getLocation(); // 调用获取地理位置
+    // this.getLocation(); // 调用获取地理位置
   },
   destroyed() {},
   }

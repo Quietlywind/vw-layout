@@ -549,7 +549,7 @@ const calendar = {
             if (d == calendar.getSunday(y, m, 2)) festival.push('母亲节');
         } else if (m == 6) {
             if (d == 1) festival.push('儿童节');
-            if (d == 4) festival.push('青年节');
+            // if (d == 4) festival.push('青年节');
             if (d == calendar.getSunday(y, m, 3)) festival.push('父亲节');
         } else if (m == 7 && d == 1) {
             festival.push('建党节');

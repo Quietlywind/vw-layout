@@ -1,13 +1,31 @@
 <template>
-  <div class="c-day">
-    <div class="h-item" v-for="i in weeks" :key="i">
-      <span>{{i}}</span>
+  <div class="calendar">
+    <div class="top-control">
+      <van-icon name="arrow-left" size="23" @click="leftControl"/>
+      <span class="text-control" @click="showPopup">{{currentDays.split("-")[0]}}年{{currentDays.split("-")[1]}}月</span>
+      <van-popup v-model="show" position="bottom">
+        <van-datetime-picker v-model="currentDate" 
+          :min-date="minDate" 
+          :max-date="maxDate" 
+          type="year-month" 
+          :formatter="formatter"
+          @confirm="dateConfirm"
+          @cancel="dateCancel"
+        />
+      </van-popup>
+      <van-icon name="arrow" size="23" @click="rightControl"/>
     </div>
-    <div class="d-item" v-for="(item,key) in days" :key="key">
-      <!-- <span :class="[item.fullDate == currentDays ? 'current-bg' : '', item.show == 0 ? 'no-default' : '']">{{item.num}}</span> -->
-      <div class="d-item-box">
-        <span class="text-num">{{item.num}}</span>
-        <span class="text-calendar">{{item.calendar.Term ? item.calendar.Term : item.calendar.IDayCn}}</span>
+    <div class="c-day">
+      <div class="h-item" v-for="i in weeks" :key="i">
+        <span>{{i}}</span>
+      </div>
+      <div class="d-item" v-for="(item,key) in days" :key="key">
+        <div :class="['d-item-box',item.show == 0 ? 'no-default' : '']" :data-date="item.fullDate">
+          <span class="text-num">{{item.num}}</span>
+          <template v-if="isCalendar">
+            <span class="text-calendar">{{getCalendar(item)}}</span>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -21,12 +39,31 @@ export default {
       days: [],
       weeks: ["一", "二", "三", "四", "五", "六", "日"],
       currentDays: "",
+      currentDate: new Date(),
+      isCalendar: true,
+      show: false,
+      minDate: new Date(1990,1,1),
+      maxDate: new Date(2030,1,1),
     };
   },
   components: {},
   computed: {},
   watch: {},
   methods: {
+    //处理lunar calendar
+    getCalendar(val) {
+      let showText = "";
+      if (val.calendar.festival && val.calendar.festival.length) {
+        showText = val.calendar.festival[0]
+      } else if (val.calendar.Term) {
+        showText = val.calendar.Term
+      } else if (val.calendar.lDay == 1) {
+        showText = val.calendar.IMonthCn
+      } else {
+        showText = val.calendar.IDayCn
+      }
+      return showText
+    },
     //获得月份
     getMonths(d, t = 0) {
       var curDate = new Date(d.replace(/-/g, '/'));
@@ -52,45 +89,81 @@ export default {
     },
     //计算该月+前后留白天数
     getFullChunkDates (d) {
-        var curDates = this.getDates(d)
-        var preDates = this.getDates(d, -1)
-        var nexDates = this.getDates(d, 1)
-        var curWeek = this.getWeek(d)
-        var curMonth = this.getMonths(d)
-        var preMonth = this.getMonths(d, -1)
-        var nexMonth = this.getMonths(d, 1)
-        curDates = curDates.map((i, k) => {
-          return {
-            num: i,
-            fullDate: /(^\d{4})-(\d{1,2})-/.exec(d)[0] + i,
-            show: 1,
-            calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],curMonth,i)
-          }
-        })
-        preDates = preDates.map(i => {
-          return {
-            num: i,
-            show: 0,
-            year: /(^\d{4})/.exec(d)[0],
-            month: preMonth,
-            calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],preMonth,i)
-          }
-        })
-        nexDates = nexDates.map(i => {
-          return {
-            num: i,
-            show: 0,
-            year: /(^\d{4})/.exec(d)[0],
-            month: nexMonth,
-            calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],nexMonth,i)
-          }
-        })
-        var preCurDates = preDates.slice(preDates.length - (curWeek === 0 ? 6 : curWeek - 1), preDates.length).concat(curDates)
-        return preCurDates.concat(nexDates.slice(0, 42 - preCurDates.length))
+      var curDates = this.getDates(d)
+      var preDates = this.getDates(d, -1)
+      var nexDates = this.getDates(d, 1)
+      var curWeek = this.getWeek(d)
+      var curMonth = this.getMonths(d)
+      var preMonth = this.getMonths(d, -1)
+      var nexMonth = this.getMonths(d, 1)
+      var preFullDate = new Date(/(^\d{4})/.exec(d)[0], parseInt(preMonth) - 1 );
+      var nexFullDate = new Date(/(^\d{4})/.exec(d)[0], parseInt(nexMonth) - 1 );
+      curDates = curDates.map((i, k) => {
+        return {
+          num: i,
+          fullDate: /(^\d{4})-(\d{1,2})-/.exec(d)[0] + i,
+          show: 1,
+          calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],curMonth,i)
+        }
+      })
+      preDates = preDates.map(i => {
+        return {
+          num: i,
+          show: 0,
+          fullDate: preFullDate.getFullYear() + '-' + parseInt(preFullDate.getMonth() + 1) + "-" + i,
+          calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],preMonth,i)
+        }
+      })
+      nexDates = nexDates.map(i => {
+        return {
+          num: i,
+          show: 0,
+          fullDate: nexFullDate.getFullYear() + '-' + parseInt(nexFullDate.getMonth() + 1) + "-" + i,
+          calendar: calendar.calendar.solar2lunar(/(^\d{4})/.exec(d)[0],nexMonth,i)
+        }
+      })
+      //如果想周日排在最前面，则将curWeek === 0 三目运算则为0
+      var preCurDates = preDates.slice(preDates.length - (curWeek === 0 ? 6 : curWeek - 1), preDates.length).concat(curDates)
+      return preCurDates.concat(nexDates.slice(0, 42 - preCurDates.length))
+    },
+    //左切换日期
+    leftControl() {
+      this.publicDate(this.currentDays, -1)
+    },
+    //右切换日期
+    rightControl() {
+      this.publicDate(this.currentDays, 1)
+    },
+    publicDate(val,num) {
+      let getMonth = this.getMonths(val, num)
+      let getDate = new Date(/(^\d{4})/.exec(val)[0], parseInt(getMonth) - 1);
+      this.currentDays = `${getDate.getFullYear()}-${getDate.getMonth() + 1}-${getDate.getDate()}`
+      this.days = this.getFullChunkDates(this.currentDays)
+    },
+    showPopup() {
+      this.currentDate = new Date(this.currentDays)
+      this.show = true;
+    },
+    dateConfirm(val) {
+      this.currentDays = `${val.getFullYear()}-${val.getMonth() + 1}-${val.getDate()}`
+      this.days = this.getFullChunkDates(this.currentDays)
+      this.show = !this.show;
+    },
+    dateCancel() {
+      this.show = !this.show;
+    },
+    formatter(type, value) {
+      if (type === 'year') {
+        return `${value}年`;
+      } else if (type === 'month') {
+        return `${value}月`
+      }
+      return value;
     }
   },
   created() {
-    this.currentDays = "2019-12-21"
+    let newDate = new Date();
+    this.currentDays = `${newDate.getFullYear()}-${newDate.getMonth() + 1}-${newDate.getDate()}`
     this.days = this.getFullChunkDates(this.currentDays)
   },
   mounted() {
@@ -99,6 +172,16 @@ export default {
   }
 </script>
 <style lang='less' scoped>
+.top-control{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh 0vh;
+  .text-control{
+    font-size: 18px;
+    padding: 0px 10px;
+  }
+}
 .c-day{
   display: flex;
   flex-wrap: wrap;
@@ -123,22 +206,20 @@ export default {
     }
     .text-num{
       font-size: 16px;
-      line-height: 100%;
+      color: #000000;
     }
     .text-calendar{
       font-size: 12px;
-      line-height: 100%;
+      color: #999999;
     }
-    // .current-bg{
-    //   // background-color: #1cc09f;
-    //   border: 1px solid #1cc09f;
-    //   display: block;
-    //   border-radius: 50%;
-    // }
-    // .no-default{
-    //   color: #cccccc;
-    //   display: block;
-    // }
+    .no-default{
+      .text-num{
+        color: #bfbfbf;
+      }
+      .text-calendar{
+        color: #bfbfbf;
+      }
+    }
   }
 }
 </style>

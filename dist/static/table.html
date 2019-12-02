@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="text-align: center;">甘南电力电量预测报告生成</h2>
+    <h3 style="text-align: center;">表1 甘南州经济社会发展情况</h3>
+    <div style="text-align: center;font-size: 16px;">表1 甘南州2018~2028年经济社会发展情况</div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">指标名称</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2020</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2021</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">国内生产总值（亿元）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2121</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">212</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">11</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">232</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">第一产业（亿元）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">312</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3213</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">312</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">321</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">第二产业（亿元）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">312</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">312</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">312</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">321</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">第三产业（亿元）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">11</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">11</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">22</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">222</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">人口（万人）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">22</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">22</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">22</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">22</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">其中： 城镇人口（万人）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">农村人口（万人）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">人均GDP（万元）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">32</td>
+        </tr>
+    </table>
+    <br clear=all style="page-break-before:always" mce_style="page-break-before:always">
+    <h3 style="text-align: center;">表2 负荷电量发展情况</h3>
+    <div style="text-align: center;font-size: 16px;">表2 甘南州2018~2019年负荷电量发展情况</div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">行政区划</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">年份</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">全社会用电量(亿kWh)</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">全社会用电负荷(MW)</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">最大负荷利用小时数(h)</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">人均用电量(kWh/人·年)</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">人均生活用电量(kWh/人·年)</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">负荷密度(MW/km2)</th>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合作市</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.596</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.83</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">6063</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">801</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">153.95</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.2</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.596</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.83</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">6063</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">801</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">153.95</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.2</td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">夏河县</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.596</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.83</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">6063</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">801</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">153.95</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.2</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.596</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.83</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">6063</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">801</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">153.95</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.2</td>
+        </tr>
+    </table>
+    <br clear=all style="page-break-before:always" mce_style="page-break-before:always">
+    <h3 style="text-align: center;">表4 甘南地区分产业用电量</h3>
+    <div style="text-align: center;font-size: 16px;">表4 甘南州2018~2019年分产业电量构成</div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;"> 
+        <tr>
+            <th rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">行政区划</th>
+            <th rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">年份</th>
+            <th colspan="4" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">分产业用电量(亿kWh)</th>
+        </tr>
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">一产</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">二产</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">三产</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">居民</th>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">甘南地区</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.2145</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.1835</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.2145</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.1835</td>
+        </tr>
+    </table>
+    <br clear=all style="page-break-before:always" mce_style="page-break-before:always">
+    <h3 style="text-align: center;">表5 甘南州电力需求总量</h3>
+    <div style="text-align: center;font-size: 16px;">表5 甘南州2018~2019年电力需求总量预测结果</div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;">
+        <div style="text-align: right;padding: 7px 5px;border: 1px solid;border-bottom: none;font-size: 14px;font-weight: 700;">
+            单位：MW、亿kWh
+        </div>
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">行政区划</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">类型</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">方案</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</th>
+        </tr>
+        <tr>
+            <td rowspan="6" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">甘南地区</td>
+            <td rowspan="3" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">全社会用电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">高</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">中</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">低</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+        <tr>
+            <td rowspan="3" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">全社会最大负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">高</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">中</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">低</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+        <tr>
+            <td rowspan="6" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合作市</td>
+            <td rowspan="3" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">全社会用电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">高</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">中</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">低</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+        <tr>
+            <td rowspan="3" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">全社会最大负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">高</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">中</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">低</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.0077</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.5603</td>
+        </tr>
+    </table>
+    <br clear=all style="page-break-before:always" mce_style="page-break-before:always">
+    <h3 style="text-align: center;">表6 区县分类负荷预测结果</h3>
+    <div style="text-align: center;font-size: 16px;">表6 区县2035年分类负荷分布预测结果</div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">行政区划</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">用地性质名称</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">占地面积(公顷)</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">中方案用地指标(w/㎡)</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">容积率</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">同时率</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">中方案负荷(kW)</th>
+        </tr>
+        <tr>
+            <td rowspan="10" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">甘南地区</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">R 居住用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">A 公共管理与公共服务设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">B 商业金融业设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">M 工业用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">W 物流仓储用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">T 对外交通用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">S 道路与交通设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">U 公用设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">G 绿地与广场用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">D 特殊用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td rowspan="10" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合作市</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">R 居住用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">A 公共管理与公共服务设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">B 商业金融业设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">M 工业用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">W 物流仓储用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">T 对外交通用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">S 道路与交通设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">U 公用设施用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">G 绿地与广场用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">D 特殊用地</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;"></td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合计</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3431.18</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">11</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">311</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">31</td>
+        </tr>
+    </table>
+    <br clear=all style="page-break-before:always" mce_style="page-break-before:always">
+    <h3 style="text-align: center;">表7 分供电区负荷电量预测结果</h3>
+    <div style="text-align: center;font-size: 16px;">表7 甘南州2018～2021年分供电区负荷电量预测结果</div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;">
+        <div style="text-align: right;padding: 7px 5px;border: 1px solid;border-bottom: none;font-size: 14px;font-weight: 700;">
+            单位：MW、亿kWh
+        </div>
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">行政区划</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">项目</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2020</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2021</th>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合作市</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">夏河县</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">碌曲县</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <!-- 合计行 -->
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合计</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+    </table>
+    <br clear=all style="page-break-before:always" mce_style="page-break-before:always">
+    <h3 style="text-align: center;">表8 分供电区大用户负荷预测结果</h3>
+    <div style="text-align: center;font-size: 16px;">表8 甘南州2018～2021年分供电区大用户负荷电量预测结果</div>
+    <div style="text-align: right;padding: 7px 5px;border: 1px solid;border-bottom: none;font-size: 14px;font-weight: 700;">
+        单位：kW、亿kWh
+    </div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">行政区划</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">项目</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2020</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2021</th>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合作市</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">大用户负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">夏河县</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">大用户负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">碌曲县</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">大用户负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <!-- 合计行 -->
+        <tr>
+            <td rowspan="2" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合计</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">大用户负荷</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电量</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">9.06</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">10.47</td>
+        </tr>
+    </table>
+    <br clear=all style="page-break-before:always" mce_style="page-break-before:always">
+    <h3 style="text-align: center;">表9 甘南州分压网供负荷预测</h3>
+    <div style="text-align: center;font-size: 16px;">表9 甘南州2018~2022年分压网供负荷预测</div>
+    <table cellpadding=0 cellspacing=0 style="width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">行政区划</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">电压等级</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">项目</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2018</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2019</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2020</th>
+            <th style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">2021</th>
+        </tr>
+        <tr>
+            <td rowspan="12" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">甘南地区</td>
+            <td rowspan="4" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">330kV/220kV</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（八）规划区总负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（九）330kV/220kV网供负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十）需330kV/220kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十一）需新增330kV/220kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">110kV</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（八）规划区总负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（九）110kV网供负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">1</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十）需110kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十一）需新增110kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">35kV</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（八）规划区总负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（九）35kV网供负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十）需35kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十一）需新增35kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td rowspan="12" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">合作市</td>
+            <td rowspan="4" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">330kV/220kV</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（八）规划区总负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（九）330kV/220kV网供负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十）需330kV/220kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十一）需新增330kV/220kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">110kV</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（八）规划区总负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（九）110kV网供负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">1</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十）需110kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十一）需新增110kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">35kV</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（八）规划区总负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">3447.36</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（九）35kV网供负荷（MW）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十）需35kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">（十一）需新增35kV变电容量（MVA）</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">399.26</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">12</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.9</td>
+            <td style="border: 1px solid #000000;font-size: 14px;text-align: center;padding: 8px;">0.8</td>
+        </tr>
+    </table>
+</body>
+</html>
